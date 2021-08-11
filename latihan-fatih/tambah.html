@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Latihan Soal</title>
+</head>
+<body>
+	<script>
+		var nama = prompt("Siapa nama kamu?");
+		var satuan1 = "";
+		var satuan2 = "";
+		var puluhan1 = "";
+		var puluhan2 = "";
+		var ratusan1 = "";
+		var ratusan2 = "";
+		var ribuan1 = "";
+		var ribuan2 = "";
+		var bilangan1 = "";
+		var bilangan2 = "";
+		var bool = true;
+		var ulangi = true;
+		var kebenaran = true;
+		var array = [];
+		var salah = [];
+
+		while(ulangi){
+			while(bool){
+				satuan1 = Math.floor(Math.random()*10);
+				satuan2 = Math.floor(Math.random()*10);
+				puluhan1 = Math.floor(Math.random()*10);
+				puluhan2 = Math.floor(Math.random()*10);
+				ratusan1 = Math.floor(Math.random()*10);
+				ratusan2 = Math.floor(Math.random()*10);
+				ribuan1 = Math.floor(Math.random()*10);
+				ribuan2 = Math.floor(Math.random()*10);
+
+				if(satuan1 < satuan2 && puluhan1 < puluhan2 && ribuan1 > ribuan2 && ribuan1 < 7 && ribuan2 > 0){
+					bilangan1 = parseInt(String(ribuan1)+String(ratusan1)+String(puluhan1)+String(satuan1));
+					bilangan2 = parseInt(String(ribuan2)+String(ratusan2)+String(puluhan2)+String(satuan2));
+					console.log(bilangan1+bilangan2);
+					while(kebenaran){
+						var jawaban = prompt(bilangan1+"\n"+bilangan2+"\n______ +\n . . . . .");
+
+						if (jawaban == bilangan1+bilangan2) {
+							alert("Benar");
+							array.push(true);
+							kebenaran = false;
+						}else{
+							alert("Salah");
+							salah.push(true);
+							kebenaran = true;
+						}
+					}
+					// console.log(bilangan1);
+					// console.log(bilangan2);
+					// console.log(bilangan1-bilangan2);
+					bool = false;
+				}
+				
+			}
+			ulangi = confirm("Lanjut?");
+			if (ulangi) {
+				bool = true;
+				kebenaran = true;
+			}
+		}
+		alert( nama +", kamu menjawab " + array.length + " soal dengan benar dan salah " + salah.length + " kali");
+
+	</script>
+</body>
+</html>
